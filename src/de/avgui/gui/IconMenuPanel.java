@@ -76,7 +76,7 @@ public class IconMenuPanel extends JPanel {
 		vBox.add(Box.createVerticalStrut(5));
 
 		panel = new JPanel(new GridLayout(1, 1));
-		button = new JButton("<html>About</html>",
+		button = new JButton("<html>about</html>",
 				new ImageIcon(getClass().getResource("/de/avgui/images/icons/help-browser.png")));
 		button.setFont(font);
 		button.setToolTipText("<html>Infos about AVGui</html>");
