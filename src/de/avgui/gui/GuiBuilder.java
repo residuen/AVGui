@@ -4,11 +4,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class GuiBuilder {
+	
 	public GuiBuilder()
 	{
 		initLookAndFeel();
 		
-		MainFrame mainFrame = new MainFrame("Mainframe");
+		MainFrame mainFrame = new MainFrame("AVGui - A UI for antivir-tools");
 		
 		MainPanel mainPanel = new MainPanel();
 		
