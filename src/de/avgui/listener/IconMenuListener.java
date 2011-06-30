@@ -8,15 +8,14 @@ import javax.swing.JPanel;
 
 import de.avgui.gui.About;
 import de.avgui.gui.ContentPanel;
+import de.avgui.interfaces.Views;
 
 public class IconMenuListener implements ActionListener {
 	
-//	private String TEST_FOLDER = "/skole/tjener/home0/";
-
 	private String selectedFolder = "";
 
 //	private ComponentMap componentMap = null;
-	private ContentPanel contentPanel;
+	private Views contentPanel;
 
 	public IconMenuListener(ContentPanel contentPanel) //ComponentMap componentMap)
 	{
@@ -43,10 +42,13 @@ public class IconMenuListener implements ActionListener {
 	
 	private void doAction(String cmd) {
 		
-		if(cmd.equals("fullscan") || cmd.equals("fractscan"))
+		if(cmd.equals("fullscan"))
 			contentPanel.switchView(ContentPanel.SCAN_VIEW);
 		else
-			contentPanel.switchView(ContentPanel.SETTINGS_VIEW);
+			if(cmd.equals("fractscan"))
+				contentPanel.switchView(ContentPanel.FRACTIONAL_VIEW);
+			else
+				contentPanel.switchView(ContentPanel.SETTINGS_VIEW);
 			
 	}
 }

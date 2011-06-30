@@ -13,9 +13,9 @@ public class GuiBuilder {
 		
 		MainPanel mainPanel = new MainPanel();
 		
-		MainMenu mainMenu = new MainMenu();
+//		MainMenu mainMenu = new MainMenu();
 		
-		mainFrame.setJMenuBar(mainMenu);
+//		mainFrame.setJMenuBar(mainMenu);
 //
 		mainFrame.getContentPane().add(mainPanel);
 //

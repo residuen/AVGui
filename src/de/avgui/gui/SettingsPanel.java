@@ -8,9 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import de.avgui.interfaces.Views;
 import de.avgui.model.AVConstants;
 
-public class SettingsPanel extends JPanel {
+public class SettingsPanel extends JPanel implements Views {
 	
 	public SettingsPanel() {
 		initPanel();
@@ -24,4 +25,6 @@ public class SettingsPanel extends JPanel {
 		add(label);
 
 	}
+	
+	public void switchView(int view) { }
 }

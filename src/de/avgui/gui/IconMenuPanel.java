@@ -64,7 +64,7 @@ public class IconMenuPanel extends JPanel {
 		button = new JButton("<html>edit<br/>settings</html>",
 				new ImageIcon(getClass().getResource("/de/avgui/images/icons/preferences-system.png")));
 		button.setFont(font);
-		button.setToolTipText("<html>Dem System zugeh&ouml;rige PC's verwalten</html>");
+		button.setToolTipText("<html>Edit the settings of AVGui</html>");
 		button.setName("edit");
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -79,7 +79,7 @@ public class IconMenuPanel extends JPanel {
 		button = new JButton("<html>About</html>",
 				new ImageIcon(getClass().getResource("/de/avgui/images/icons/help-browser.png")));
 		button.setFont(font);
-		button.setToolTipText("<html>Infos &uuml;ber AVGui</html>");
+		button.setToolTipText("<html>Infos about AVGui</html>");
 		button.setName("about");
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.setVerticalTextPosition(SwingConstants.BOTTOM);
