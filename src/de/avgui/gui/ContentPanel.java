@@ -43,7 +43,6 @@ public class ContentPanel extends JPanel implements Views {
 	{
 		if(view==SCAN_VIEW || view == FRACTIONAL_VIEW)
 		{
-//			System.out.println("ContentPanel: Schalter 1 "+" view="+view);
 			settingsPanel.setVisible(false);
 			
 			scanPanel.switchView(view);
@@ -51,9 +50,7 @@ public class ContentPanel extends JPanel implements Views {
 		}
 		else
 		{
-//			System.out.println("ContentPanel: Schalter 2");
 			scanPanel.setVisible(false);
-//			scanPanel.switchView(view);
 			
 			settingsPanel.setVisible(true);
 		}

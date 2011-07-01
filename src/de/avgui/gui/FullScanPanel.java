@@ -64,11 +64,11 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		JPanel scannedElementsPanel = new JPanel(new BorderLayout());
 		JPanel elementNamePanel = new JPanel(new BorderLayout());
 		
-		JLabel scanTypText =  new JLabel("Scantyp: ");
-		JLabel startTimeText =  new JLabel("Starttime: ");
-		JLabel currentTimeText =  new JLabel("Time left: ");
-		JLabel scannedElementsText =  new JLabel("Scanned elements: ");
-		JLabel elementNameText =  new JLabel("Element name: ");
+		JLabel scanTypText =  new JLabel(" Scantyp: ");
+		JLabel startTimeText =  new JLabel(" Starttime: ");
+		JLabel currentTimeText =  new JLabel(" Time left: ");
+		JLabel scannedElementsText =  new JLabel(" Scanned elements: ");
+		JLabel elementNameText =  new JLabel(" Element name: ");
 
 		coloringLabel(scanTypText);
 		resizingLabel(scanTypText);

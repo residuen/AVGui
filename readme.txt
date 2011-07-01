@@ -1,4 +1,4 @@
-This tool will implement command-line based antivir-tools.
+This tool will implement command-line based antivir-tools for Linux.
 Different scan-tools will be implemented by editting an simple XML- or JSON-file.
 Additionally scan-reports will be show the results of the antivir-scanners.
 

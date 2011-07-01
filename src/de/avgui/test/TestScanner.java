@@ -3,7 +3,6 @@ package de.avgui.test;
 import java.io.File;
 
 import de.avgui.gui.FullScanPanel;
-import de.avgui.gui.ScanPanel;
 import de.avgui.model.ScanData;
 
 public class TestScanner extends Thread {
@@ -25,17 +24,12 @@ public class TestScanner extends Thread {
 		
 		File file = new File("c:");
 		
-//		System.out.println("file.getAbsolutePath()="+file.getAbsolutePath());
-		
 		while(scanning) {
 			
 			showFiles(file.listFiles());
 			
 			if(!scanning)
 				break;
-			
-//			try { Thread.sleep(100); }
-//			catch (InterruptedException e) { e.printStackTrace(); }
 		}
 	}
 	
