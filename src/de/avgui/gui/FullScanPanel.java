@@ -35,7 +35,7 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 	private JLabel scannedElements =  new JLabel("");
 	private JLabel elementName =  new JLabel("");
 	
-	private SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 	private Date time = new Date();
 	
 	private TestScanner scanner = null;
@@ -144,8 +144,7 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 	public void updateScanInfo(ScanData scanData) {
 		
 		scanTyp.setText(scanData.getScanTyp());
-//		startTime.setText(""+dateFormat.format(scanData.getStartTime()));
-		currentTime.setText(""+dateFormat.format(scanData.getCurrentTime() - scanData.getStartTime()));
+		currentTime.setText(""+dateFormat.format(scanData.getCurrentTime() - scanData.getStartTime() - 3600000));
 		scannedElements.setText(""+scanData.getScannedElements());
 		elementName.setText(""+scanData.getElementName());
 	}
@@ -168,18 +167,9 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 					
 					((JToggleButton)arg0.getSource()).setText(toogle[1]);
 	
-	//					Dann kannst du das Label anpassen:
-	//					labeltext = sdfAktuell.format(zeit); // labeltext ist ein String
-	//					zeitLabel.setText(labeltext);
-	
 					scanner.start();
 				}
 			}
-			
-//			if(((JToggleButton)arg0.getSource()).isSelected())
-//			{
-//				((JToggleButton)arg0.getSource()).setText(toogle[1]);
-//			}
 			else
 			{
 				((JToggleButton)arg0.getSource()).setText(toogle[0]);

@@ -54,18 +54,12 @@ public class TestScanner extends Thread {
 						scanData.setScanTyp("Full scan");
 						
 						scanPanel.updateScanInfo(scanData);
-						
-		//				System.out.println(file.getAbsolutePath());
 					}
 					else
 						showFiles(file.listFiles());
 				
 				try { Thread.sleep(50); }
 				catch (InterruptedException e) { e.printStackTrace(); scanning = false; break;  }
-				
-//				if(!isInterrupted())
-//					return false;
-	
 			}
 		}
 	}
