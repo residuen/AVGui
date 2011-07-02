@@ -12,6 +12,8 @@ public class TestScanner extends Thread {
 	
 	private boolean scanning = true;
 	
+	int rand;
+	
 	public TestScanner(ScanData scanData, FullScanPanel scanPanel) {
 		
 		this.scanData = scanData;
@@ -22,7 +24,7 @@ public class TestScanner extends Thread {
 		
 		scanData.setStartTime(System.currentTimeMillis());
 		
-		File file = new File("c:");
+		File file = new File("/");
 		
 		while(scanning) {
 			
@@ -42,12 +44,21 @@ public class TestScanner extends Thread {
 				if(scanning)
 					if(file.isFile())
 					{
+						rand = ((int)(Math.random()*100));
+						
 						scanData.setCurrentTime(System.currentTimeMillis());
 						scanData.setElementName(file.getAbsolutePath());
 						scanData.setScannedElements(scanData.getScannedElements() + 1);
 						scanData.setScanTyp("Full scan");
 						
 						scanPanel.updateScanInfo(scanData);
+						
+						if(rand==1)
+						{
+							scanData.addInfectedFile(scanData.getElementName());
+							System.out.println(scanData.getElementName()+" is a suspect file!");
+						}
+							
 					}
 					else
 						showFiles(file.listFiles());

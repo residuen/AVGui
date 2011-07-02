@@ -34,14 +34,9 @@ public class ScanPanel extends JPanel implements Views {
 		Box vBox = Box.createVerticalBox();
 		setBackground(Color.WHITE);
 		
-//		JLabel label = new JLabel("Scan- & fractscan panel", JLabel.LEFT);
-//		label.setBorder(new EmptyBorder(5, 5, 5, 5));
-//		label.setFont(new Font("Serif", Font.BOLD, 20));
-		
 		fractionalView.setBorder(BorderFactory.createTitledBorder("Set scan-options"));
 		scanView.setBorder(BorderFactory.createTitledBorder("Scanning system"));
 		
-//		vBox.add(label);
 		add(fractionalView, BorderLayout.NORTH);
 		add(scanView, BorderLayout.CENTER);
 		

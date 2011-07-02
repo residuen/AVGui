@@ -34,6 +34,9 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 	private JLabel currentTime =  new JLabel("");
 	private JLabel scannedElements =  new JLabel("");
 	private JLabel elementName =  new JLabel("");
+	private JLabel suspectFiles =  new JLabel("");
+	
+	private ScanResultPanel ScanResultPanel = new ScanResultPanel();
 	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 	private Date time = new Date();
@@ -50,6 +53,8 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout());
 		
+		int strutSize = 10;
+		
 		Box hBox = Box.createHorizontalBox();
 		
 		Box vBox = Box.createVerticalBox();
@@ -63,12 +68,14 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		JPanel currentTimePanel = new JPanel(new BorderLayout());
 		JPanel scannedElementsPanel = new JPanel(new BorderLayout());
 		JPanel elementNamePanel = new JPanel(new BorderLayout());
+		JPanel suspectFilesPanel = new JPanel(new BorderLayout());
 		
 		JLabel scanTypText =  new JLabel(" Scantyp: ");
 		JLabel startTimeText =  new JLabel(" Starttime: ");
 		JLabel currentTimeText =  new JLabel(" Time left: ");
 		JLabel scannedElementsText =  new JLabel(" Scanned elements: ");
 		JLabel elementNameText =  new JLabel(" Element name: ");
+		JLabel suspectFilesText =  new JLabel(" Suspect files: ");
 
 		coloringLabel(scanTypText);
 		resizingLabel(scanTypText);
@@ -80,12 +87,15 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		resizingLabel(scannedElementsText);
 		coloringLabel(elementNameText);
 		resizingLabel(elementNameText);
+		coloringLabel(suspectFilesText);
+		resizingLabel(suspectFilesText);
 
 		coloringLabel(scanTyp);
 		coloringLabel(startTime);
 		coloringLabel(currentTime);
 		coloringLabel(scannedElements);
 		coloringLabel(elementName);
+		coloringLabel(suspectFiles);
 		
 		startStop.setName("startstop");
 		startStop.addActionListener(this);
@@ -100,31 +110,39 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		headlinePanel.setBackground(Color.WHITE);
 		headlinePanel.add(hBox, BorderLayout.WEST);
 		vBox.add(headlinePanel);		
-		vBox.add(Box.createVerticalStrut(10));
+		vBox.add(Box.createVerticalStrut(strutSize));
 
 		scanTypPanel.add(scanTypText, BorderLayout.WEST);
 		scanTypPanel.add(scanTyp, BorderLayout.CENTER);
 		vBox.add(scanTypPanel);		
-		vBox.add(Box.createVerticalStrut(10));
+		vBox.add(Box.createVerticalStrut(strutSize));
 
 		startTimePanel.add(startTimeText, BorderLayout.WEST);
 		startTimePanel.add(startTime, BorderLayout.CENTER);
 		vBox.add(startTimePanel);		
-		vBox.add(Box.createVerticalStrut(10));
+		vBox.add(Box.createVerticalStrut(strutSize));
 
 		currentTimePanel.add(currentTimeText, BorderLayout.WEST);
 		currentTimePanel.add(currentTime, BorderLayout.CENTER);
 		vBox.add(currentTimePanel);		
-		vBox.add(Box.createVerticalStrut(10));
+		vBox.add(Box.createVerticalStrut(strutSize));
 
 		scannedElementsPanel.add(scannedElementsText, BorderLayout.WEST);
 		scannedElementsPanel.add(scannedElements, BorderLayout.CENTER);
 		vBox.add(scannedElementsPanel);		
-		vBox.add(Box.createVerticalStrut(10));
+		vBox.add(Box.createVerticalStrut(strutSize));
 
 		elementNamePanel.add(elementNameText, BorderLayout.WEST);
 		elementNamePanel.add(elementName, BorderLayout.CENTER);
 		vBox.add(elementNamePanel);		
+		vBox.add(Box.createVerticalStrut(strutSize));
+
+		suspectFilesPanel.add(suspectFilesText, BorderLayout.WEST);
+		suspectFilesPanel.add(suspectFiles, BorderLayout.CENTER);
+		vBox.add(suspectFilesPanel);
+		vBox.add(Box.createVerticalStrut(strutSize));
+
+		vBox.add(ScanResultPanel);
 
 		add(vBox, BorderLayout.NORTH);
 
@@ -147,6 +165,9 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		currentTime.setText(""+dateFormat.format(scanData.getCurrentTime() - scanData.getStartTime() - 3600000));
 		scannedElements.setText(""+scanData.getScannedElements());
 		elementName.setText(""+scanData.getElementName());
+		suspectFiles.setText(""+scanData.getInfectionList().size());
+		
+		ScanResultPanel.updateView(scanData);
 	}
 	
 	public void switchView(int view) { }
@@ -176,6 +197,8 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 				
 				scanner.interrupt();
 				scanner = null;
+				
+				ScanResultPanel.clearList();
 			}
 		}
 	}

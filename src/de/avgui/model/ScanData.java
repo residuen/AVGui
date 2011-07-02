@@ -1,5 +1,7 @@
 package de.avgui.model;
 
+import java.util.ArrayList;
+
 public class ScanData {
 	
 	private String scanTyp = "Full scan";
@@ -9,6 +11,8 @@ public class ScanData {
 	private long currentTime = startTime;
 	
 	private int scannedElements = 0;
+	
+	private ArrayList<String> infectionList = new ArrayList<String>();
 	
 	public String getScanTyp() {
 		return scanTyp;
@@ -50,6 +54,10 @@ public class ScanData {
 		this.scannedElements = scannedElements;
 	}
 	
+	public ArrayList<String> getInfectionList() {
+		return infectionList;
+	}
+
 	public void reset() {
 		
 		scanTyp = "Full scan";
@@ -61,5 +69,8 @@ public class ScanData {
 		scannedElements = 0;
 	}
 	
-
+	public void addInfectedFile(String name) {
+		
+		infectionList.add(name);
+	}
 }

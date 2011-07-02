@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame
 {
-	public MainFrame(String arg0) // throws HeadlessException
+	public MainFrame(String arg0)
 	{
 		super(arg0);
 
