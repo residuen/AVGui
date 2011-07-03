@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,10 +12,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.Box;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JToggleButton;
 import javax.swing.border.EmptyBorder;
 
@@ -22,6 +25,7 @@ import de.avgui.interfaces.Views;
 import de.avgui.model.AVConstants;
 import de.avgui.model.ScanData;
 import de.avgui.test.TestScanner;
+import de.avgui.tools.ComponentTools;
 
 public class FullScanPanel extends JPanel implements Views, ActionListener {
 	
@@ -35,6 +39,11 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 	private JLabel scannedElements =  new JLabel("");
 	private JLabel elementName =  new JLabel("");
 	private JLabel suspectFiles =  new JLabel("");
+	
+	private JRadioButton delete = new JRadioButton("Delete");
+	private JRadioButton move = new JRadioButton("Move to quarantine");
+	private JRadioButton rename = new JRadioButton("Rename");
+	private JRadioButton doNothing = new JRadioButton("Do nothing");
 	
 	private ScanResultPanel ScanResultPanel = new ScanResultPanel();
 	
@@ -60,6 +69,8 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		Box vBox = Box.createVerticalBox();
 		vBox.setBackground(Color.WHITE);
 		
+		ButtonGroup bGroup = new ButtonGroup();
+		
 		JToggleButton startStop = new JToggleButton(toogle[0]);
 		
 		JPanel headlinePanel = new JPanel(new BorderLayout());
@@ -69,6 +80,7 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		JPanel scannedElementsPanel = new JPanel(new BorderLayout());
 		JPanel elementNamePanel = new JPanel(new BorderLayout());
 		JPanel suspectFilesPanel = new JPanel(new BorderLayout());
+		JPanel totoPanel = new JPanel(new FlowLayout());
 		
 		JLabel scanTypText =  new JLabel(" Scantyp: ");
 		JLabel startTimeText =  new JLabel(" Starttime: ");
@@ -99,7 +111,7 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		
 		startStop.setName("startstop");
 		startStop.addActionListener(this);
-		AVConstants.dimButton((Component)startStop);
+		ComponentTools.dimButton((Component)startStop);
 		
 		JLabel label = new JLabel("Scanning the system ... ", new ImageIcon(getClass().getResource("/de/avgui/images/icons/system-search.png")), JLabel.LEFT);
 		coloringLabel(label);
@@ -143,7 +155,27 @@ public class FullScanPanel extends JPanel implements Views, ActionListener {
 		vBox.add(Box.createVerticalStrut(strutSize));
 
 		vBox.add(ScanResultPanel);
+		vBox.add(Box.createVerticalStrut(strutSize));
+		delete.setBackground(Color.WHITE);
+		move.setBackground(Color.WHITE);
+		rename.setBackground(Color.WHITE);
+		doNothing.setBackground(Color.WHITE);
+		
+		totoPanel.setBackground(Color.WHITE);
 
+		bGroup.add(delete);
+		bGroup.add(move);
+		bGroup.add(rename);
+		bGroup.add(doNothing);
+		
+		totoPanel.add(delete);
+		totoPanel.add(move);
+		totoPanel.add(rename);
+		totoPanel.add(doNothing);
+		totoPanel.add(new JButton("OK"));
+		
+		vBox.add(totoPanel);
+		
 		add(vBox, BorderLayout.NORTH);
 
 	}

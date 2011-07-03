@@ -9,7 +9,7 @@ public class GuiBuilder {
 	{
 		initLookAndFeel();
 		
-		MainFrame mainFrame = new MainFrame("AVGui - A GUI for antivir-tools");
+		MainFrame mainFrame = new MainFrame("AVGui: A Linux-GUI for antivir-tools");
 		
 		MainPanel mainPanel = new MainPanel();
 		

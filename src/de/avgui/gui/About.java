@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
+import de.avgui.model.AVConstants;
+
 public class About extends JFrame
 {
 	JFrame frame;
@@ -31,7 +33,7 @@ public class About extends JFrame
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14)); 	// Monospace-Font setzen
 		
 		string.append("\n AVGui: A simple GUI to implement\n command-line antivir-tools for Linux\n");
-		string.append("\n Version: 0\n");
+		string.append("\n Version: "+AVConstants.versionText+"\n");
 		string.append(" (c) Copyright K. Bettray 2011. All rights reserved.\n");
 		string.append(" License: GPL 3.0 (http://www.gnu.de/documents/gpl.de.html)\n");
 		string.append(" Hosted: https://github.com/residuen/AVGui\n");
@@ -72,7 +74,7 @@ public class About extends JFrame
 		Container cp = getContentPane();
 		cp.add(panel);
 		frame = new JFrame();
-		frame.setTitle("JFunktion");
+		frame.setTitle("About AVGui");
 		frame.setSize(490, 230);
 		frame.setContentPane(cp);
 		frame.setLayout(new GridLayout(1,1));

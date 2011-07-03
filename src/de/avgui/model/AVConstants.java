@@ -11,10 +11,10 @@ public class AVConstants {
 	
 	public static final String versionText = "v. " + version;
 	
-	public static void dimButton(Component button) {
-		
-		button.setPreferredSize(new Dimension(110, 25));
-		button.setMinimumSize(new Dimension(110, 25));
-		button.setMaximumSize(new Dimension(110, 25));
-	}
+//	public static void dimButton(Component button) {
+//		
+//		button.setPreferredSize(new Dimension(110, 25));
+//		button.setMinimumSize(new Dimension(110, 25));
+//		button.setMaximumSize(new Dimension(110, 25));
+//	}
 }
